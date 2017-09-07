@@ -5,7 +5,7 @@ variable "domain" {
 
 variable "manage_primary_rule_set" {
   description = "There is only one active rule set per acount so it should be managed by one env"
-  default = "0"
+  default     = 1
 }
 
 variable "ses_inbox_expiry_days" {
@@ -13,7 +13,12 @@ variable "ses_inbox_expiry_days" {
   default     = "7"
 }
 
-variables "recipients" {
+variable "recipients" {
   description = "A list of email addresses"
-  default     = []
+
+  default = "postmaster"
+
+  #  default = ["hostmaster", "postmaster", "admin"]
+
+  #  type = "list"
 }
